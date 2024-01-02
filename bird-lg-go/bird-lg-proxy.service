@@ -6,9 +6,9 @@ After=bird.service
 Type=simple
 User=bird
 Group=bird
-ExecStart=/home/debian/go/bin/proxy
+ExecStart=/home/ubuntu/go/bin/proxy
 Restart=on-failure
-EnvironmentFile=/home/debian/dn42-config/bird-lg-go/bird-lg-proxy.env
+EnvironmentFile=/home/ubuntu/dn42-config/bird-lg-go/bird-lg-proxy.env
 
 [Install]
 WantedBy=multi-user.target
