@@ -6,7 +6,7 @@ After=bird.service
 Type=simple
 User=bird
 Group=bird
-ExecStart=/home/ubuntu/go/bin/proxy
+ExecStart=/usr/local/bin/bird-lg-proxy
 Restart=on-failure
 EnvironmentFile=/home/ubuntu/dn42-config/bird-lg-go/bird-lg-proxy.env
 
