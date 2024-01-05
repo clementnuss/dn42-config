@@ -1,0 +1,10 @@
+[Match]
+Name=dn42
+
+[Network]
+IPForward=Yes
+Address=172.23.114.157/32
+Address=fd2d:5027:1014:abcd::beef/128
+
+[Link]
+Multicast=Yes

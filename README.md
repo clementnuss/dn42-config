@@ -41,6 +41,15 @@ net.ipv4.conf.default.rp_filter=0
 net.ipv4.conf.all.rp_filter=0
 END
 
+sudo chmod a+x /home/ubuntu # needed otherwise config symlinks fail
+
+sudo ln -s /home/${USER}/dn42-config/$(hostname)/wireguard/ /etc/
+sudo ln -s /home/${USER}/dn42-config/$(hostname)/bird/ /etc/
+sudo ln -s /home/${USER}/dn42-config/$(hostname)/interfaces.d/ /etc/network/
+sudo cp /home/${USER}/dn42-config/$(hostname)/systemd-network/* /etc/systemd/network/
+
+sudo systemctl reload systemd-networkd
+
 sudo apt update && sudo apt upgrade -yy && reboot
 sudo apt install -y inetutils-ping traceroute git vim
 curl -Lo go_installer https://get.golang.org/linux && chmod +x go_installer && ./go_installer && rm go_installer
@@ -49,7 +58,6 @@ source ~/.bash_profile
 sudo apt install -y wireguard bird2
 
 go install github.com/xddxdd/bird-lg-go/proxy@latest
-sudo cp ${GOPATH}/bin/proxy /usr/local/bin/bird-lg-proxy
 sudo systemctl link dn42-config/bird-lg-go/bird-lg-proxy.service
 sudo systemctl enable --now bird-lg-proxy.service
 
