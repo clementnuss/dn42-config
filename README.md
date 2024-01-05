@@ -45,7 +45,6 @@ sudo chmod a+x /home/ubuntu # needed otherwise config symlinks fail
 
 sudo ln -s /home/${USER}/dn42-config/$(hostname)/wireguard/ /etc/
 sudo ln -s /home/${USER}/dn42-config/$(hostname)/bird/ /etc/
-sudo ln -s /home/${USER}/dn42-config/$(hostname)/interfaces.d/ /etc/network/
 sudo cp /home/${USER}/dn42-config/$(hostname)/systemd-network/* /etc/systemd/network/
 
 sudo systemctl reload systemd-networkd
