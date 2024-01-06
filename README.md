@@ -30,6 +30,8 @@ Total addresses in range: 32
 With valid IPv4/v6 internet connectivity, do the following steps:
 
 ```bash
+sudo systemctl enable --now apt-daily.timer
+sudo systemctl enable --now apt-daily-upgrade.timer
 
 sudo tee /etc/sysctl.d/42-dn42.conf > /dev/null << END
 # allow ipv4/v6 forwarding on all ifaces
